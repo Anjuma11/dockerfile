@@ -1,13 +1,8 @@
-FROM almalinux:version
-ARG version="${version}"
+ARG version
+FROM almalinux:${version:-9}
 ENV Course="Devops"\
     Trainer="Siva"
 ARG duration="120hrs"
-CMD ["sleep","1000"]
-
-FROM almalinux:9
-ENV course="Devops"\
-    Trainer="Siva"
-ARG Duration="120hrs"
-ENV duration=Duration
+ENV duration=duration
+RUN echo "Hi, Course is: ${course}, duration is: ${duration}, trainer is: ${trainer}, version: ${version}"
 CMD ["sleep","1000"]
